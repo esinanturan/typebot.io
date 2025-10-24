@@ -67,7 +67,7 @@ const getCredentials = async (
       phoneNumberId: input.phoneNumberId,
     };
   if (!input.credentialsId) return;
-  const credentials = await prisma.credentials.findUnique({
+  const credentials = await prisma.credentials.findFirst({
     where: {
       id: input.credentialsId,
       workspace: env.ADMIN_EMAIL?.includes(user.email)
